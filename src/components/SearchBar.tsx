@@ -7,17 +7,19 @@ interface Props {
   placeholder?: string;
   showFilter?: boolean;
   onFilterPress?: () => void;
+  onChangeText?: (text: string) => void;
 }
 
 const SearchBar = ({
   placeholder = "Search your dream car...",
   showFilter = true,
   onFilterPress,
+  onChangeText
 }: Props) => {
   return (
-    <View className="flex-row gap-4 w-full px-4 items-center mt-4">
+    <View className="flex-row gap-4 w-full px-4 items-center py-2 bg-background">
       <View className="flex-1">
-        <Input placeholderText={placeholder} leftIcon="magnify" />
+        <Input placeholderText={placeholder} leftIcon="magnify" onChangeText={onChangeText} />
       </View>
 
       {showFilter && (

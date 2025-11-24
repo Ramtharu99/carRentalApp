@@ -16,4 +16,6 @@ export interface HeaderProps {
   badgeCount?: number;
   centerTitle?: boolean;
   showRightIcon?: boolean;
+  onNotificationPress?: any;
+  onAccount?: any;
 }

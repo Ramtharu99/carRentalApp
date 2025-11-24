@@ -7,7 +7,7 @@ interface CarBrandItemProps {
   layout?: "row" | "column";
   onPress?: () => void;
   selected?: boolean;
-  size?: "sm" | "md" | "lg"; // Tailwind size
+  size?: "sm" | "md" | "lg";
   textSize?: "sm" | "base" | "lg";
   padding?: "p-1" | "p-2" | "p-3";
 }
@@ -30,7 +30,7 @@ const CarBrandItem = ({
     <Pressable
       onPress={onPress}
       className={`
-        ${isRow ? "flex-row items-start" : "flex-col items-center"} 
+        ${isRow ? "flex-row items-center" : "flex-col items-center"} 
         mr-4 
         rounded-full 
         ${padding} 
@@ -41,7 +41,7 @@ const CarBrandItem = ({
         source={image}
         className={`${sizeClass} rounded-full border border-gray-300 ${isRow ? "mr-3" : "mb-2"}`}
       />
-      <Text className={`mt-2 text-${textSize} ${selected ? "text-white" : "text-black"}`}>
+      <Text className={`text-${textSize} ${selected ? "text-white" : "text-black"}`}>
         {name}
       </Text>
     </Pressable>

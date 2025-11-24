@@ -2,8 +2,8 @@ import React from "react";
 import { View, Text, Pressable, Image } from "react-native";
 import Octicons from "react-native-vector-icons/Octicons";
 import assets from "../../assets";
-import { useNavigation } from "@react-navigation/native";
 import { HeaderProps } from "../types/type";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = ({
   type = "home",
@@ -12,9 +12,11 @@ const Header = ({
   showRightIcon = true,
   showNotification = true,
   badgeCount = 0,
+  onNotificationPress,
+  onAccount
 }: HeaderProps) => {
 
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<any>()
   const { logo_black, person } = assets;
 
   // ---------------- HOME HEADER ----------------
@@ -33,7 +35,7 @@ const Header = ({
           {/* RIGHT SIDE BUTTONS */}
           <View className="flex-row items-center gap-4 ml-auto">
             <Pressable
-              onPress={() => navigation.navigate("NotificationScreen")}
+              onPress={onNotificationPress}
               className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center"
             >
               <Octicons name="bell" size={22} />
@@ -44,7 +46,7 @@ const Header = ({
               )}
             </Pressable>
 
-            <Pressable className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center">
+            <Pressable onPress={onAccount} className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center">
               <Image source={person} className="h-8 w-8" />
             </Pressable>
           </View>
@@ -53,7 +55,6 @@ const Header = ({
     );
   }
 
-  // ---------------- BACK HEADER (DEFAULT) ----------------
 
   return (
     <View className="border-b border-gray-300 py-3 px-4">
@@ -80,7 +81,7 @@ const Header = ({
             <Octicons name="kebab-horizontal" size={24} />
           </Pressable>
         ) : (
-          <View className="w-6" /> // keep alignment clean
+          <View className="w-6" /> 
         )}
       </View>
 
