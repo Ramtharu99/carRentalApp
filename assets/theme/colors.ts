@@ -10,4 +10,5 @@ export const colors = {
   red: 'red',
   icon: 'rgb(156,156,156)',
   search: 'rgb(51,52,56)',
+  bgTab: "#21292b"
 };

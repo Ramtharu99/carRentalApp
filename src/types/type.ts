@@ -7,3 +7,13 @@ export interface InputProps {
     onChangeText?: (text: string) => void;
     onRightIconPress?: () => void
 }
+
+
+export interface HeaderProps {
+  type?: "home" | "back";
+  title?: string;            
+  showNotification?: boolean; 
+  badgeCount?: number;
+  centerTitle?: boolean;
+  showRightIcon?: boolean;
+}

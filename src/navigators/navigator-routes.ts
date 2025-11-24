@@ -6,6 +6,10 @@ export type NavigatorParamList = {
   ['VerifyScreen']: undefined;
   ['OtpScreen']: undefined;
   ['HomeScreen']: undefined;
+  ['SearchScreen']: undefined;
+  ['MessageScreen']: undefined;
+  ['AccountScreen']: undefined;
+  ['NotificationScreen']: undefined;
 
 };
 

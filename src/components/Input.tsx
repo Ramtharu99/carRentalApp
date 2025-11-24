@@ -13,7 +13,7 @@ const Input = ({
   onRightIconPress,
   }: InputProps) => {
   return (
-    <View className='mt-4 flex-1'>
+    <View className='mt-2'>
       <TextInput
         placeholder={placeholderText}
         mode="outlined"

@@ -9,7 +9,7 @@ import {
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import {NavigatorParamList} from './navigator-routes';
 import {navigationRef} from './navigator-utils';
 
@@ -24,6 +24,10 @@ import ResetScreen from '../auth/ResetScreen';
 import VerifyScreen from '../auth/VerifyScreen';
 import OTPScreen from '../auth/OTPScreen';
 import HomeScreen from '../screens/HomeScreen';
+import SearchScreen from '../screens/SearchScreen';
+import Message from '../screens/Message';
+import Account from '../screens/Account';
+import Notification from '../screens/Notification';
 
 type NavigationProps = Partial<
   React.ComponentProps<typeof NavigationContainer>
@@ -47,32 +51,26 @@ const TabStack = () => {
         keyboardHidesTabBar: true,
 
         tabBarIcon: ({focused}) => {
-          let iconName = 'camera';
-          let tabName = 'Home';
+          let iconName = 'home';
 
           if (route.name === 'HomeScreen') {
-            iconName = focused ? 'camera' : 'camera';
-            tabName = 'Camera';
+            iconName = focused ? 'home' : 'home';
+          }
+          else if (route.name === 'SearchScreen') {
+            iconName = focused ? 'search' : 'search';
+          }else if(route.name === 'MessageScreen'){
+            iconName = focused ? 'message' : 'message';
+          }else if(route.name === 'AccountScreen'){
+            iconName = focused ? 'account-circle': 'account-circle'
           }
 
           return (
             <View className="justify-center items-center w-full">
-              <MaterialCommunityIcons
+              <MaterialIcons
                 name={iconName}
                 size={scale(focused ? 25 : 23)}
                 color={focused ? colors.white : colors.icon}
               />
-
-              <Text
-                numberOfLines={1}
-                className={`text-4xl font-PoppinsMedium ${
-                  focused
-                    ? 'font-semibold text-white'
-                    : 'font-normal text-icon'
-                }`}
-              >
-                {tabName}
-              </Text>
             </View>
           );
         },
@@ -89,13 +87,32 @@ const TabStack = () => {
             Platform.OS === 'ios'
               ? scale(50 + insets.bottom)
               : scale(60),
-          backgroundColor: colors.black,
+          backgroundColor: colors.bgTab,
+          position: 'absolute',
+          bottom: scale(28),
+          borderRadius: scale(30),
+          marginHorizontal: scale(12)
         },
       })}
       initialRouteName={'HomeScreen'}>
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
+        options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
+      />
+      <Tab.Screen
+        name="SearchScreen"
+        component={SearchScreen}
+        options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
+      />
+      <Tab.Screen
+        name="MessageScreen"
+        component={Message}
+        options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
+      />
+      <Tab.Screen
+        name="AccountScreen"
+        component={Account}
         options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
       />
     </Tab.Navigator>
@@ -143,6 +160,13 @@ const AuthStack = () => {
       <Stack.Screen
         name="OtpScreen"
         component={OTPScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="NotificationScreen"
+        component={Notification}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
