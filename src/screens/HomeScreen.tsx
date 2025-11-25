@@ -7,6 +7,7 @@ import Header from "../components/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
 import CarBrandItem from "../components/CarBrand";
 import { useNavigation } from "@react-navigation/native";
+import BottomSheet from "../components/BottomSheet";
 
 const HomeScreen = () => {
   const { tesla, white_car } = assets;
@@ -20,7 +21,6 @@ const HomeScreen = () => {
     { id: 4, name: "Mercedes" },
   ];
 
-  // Cars data
   const cars = [
     { id: 1, title: "Tesla Model 3", location: "Gaushala", seat: 4, price: 20000, rate: 4.5 },
     { id: 2, title: "BMW X5", location: "Lazimpat", seat: 5, price: 25000, rate: 4.7 },
@@ -30,6 +30,7 @@ const HomeScreen = () => {
 
   const [searchText, setSearchText] = useState("");
   const [filteredCars, setFilteredCars] = useState(cars);
+  const [filterVisible, setFilterVisible] = useState(false);
 
   const handleSearch = (text: string) => {
     setSearchText(text);
@@ -45,6 +46,7 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
+      <BottomSheet visible={filterVisible} onClose={() => setFilterVisible(false)} title="Filter Cars" iconName="filter-outline" />
       <Header
         type="home"
         badgeCount={3}
@@ -63,6 +65,7 @@ const HomeScreen = () => {
           showFilter={true}
           placeholder="Search for cars..."
           onChangeText={handleSearch}
+          onFilterPress={() => setFilterVisible(true)}
         />
 
         {/* Brands Section */}
