@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import assets from '../../assets'
+import Favorite from './Favorite'
 
 interface CarCardProps {
   title?: string;
@@ -34,9 +35,7 @@ const CarCard = ({
   return (
     <Pressable onPress={viewDetails} className="bg-white rounded-2xl m-2 shadow-md overflow-hidden">
       {/* Favorite Icon */}
-      <View className="absolute top-3 right-3 bg-white p-1 rounded-full border border-gray-300" style={{ zIndex: 10 }}>
-        <Ionicons name="heart-outline" size={20} color="black" />
-      </View>
+      <Favorite />
 
       {/* Car Image */}
       <View className="w-full bg-gray-100 rounded-xl items-center justify-center h-36">

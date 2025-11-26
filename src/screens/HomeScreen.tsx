@@ -8,6 +8,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import CarBrandItem from "../components/CarBrand";
 import { useNavigation } from "@react-navigation/native";
 import BottomSheet from "../components/BottomSheet";
+import { navigate } from './../navigators/navigator-utils';
 
 const HomeScreen = () => {
   const { tesla, white_car } = assets;
@@ -46,13 +47,17 @@ const HomeScreen = () => {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <BottomSheet visible={filterVisible} onClose={() => setFilterVisible(false)} title="Filter Cars" iconName="filter-outline" />
+      <BottomSheet visible={filterVisible} onClose={() => setFilterVisible(false)} title="Filter Cars"  />
       <Header
         type="home"
         badgeCount={3}
         centerTitle={false}
-        onNotificationPress={() => navigation.navigate("NotificationScreen")}
-        onAccount={() => navigation.navigate("Account")}
+        onNotificationPress={() => navigate("rootStack", {
+          screen: "NotificationScreen"
+        })}
+        onAccount={() => navigate("rootStack", {
+          screen: "AccountScreen"
+        })}
       />
 
       <ScrollView
@@ -105,6 +110,9 @@ const HomeScreen = () => {
                   seat={item.seat}
                   price={item.price}
                   rate={item.rate}
+                  viewDetails={() => navigate("rootStack", {
+                    screen: "CarDetailsScreen"
+                  })}
                 />
               </View>
             )}

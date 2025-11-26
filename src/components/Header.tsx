@@ -62,7 +62,7 @@ const Header = ({
       <View className="flex-row items-center justify-between relative">
 
         {/* BACK BUTTON */}
-        <Pressable onPress={() => navigation.goBack()} className="z-10">
+        <Pressable onPress={() => navigation.goBack()} className="border h-14 w-14 flex items-center justify-center border-gray-300 rounded-full">
           <Octicons name="chevron-left" size={28} />
         </Pressable>
 
@@ -70,14 +70,14 @@ const Header = ({
         <Text
           className={`${
             centerTitle ? "absolute left-0 right-0 text-center" : "ml-4"
-          } text-lg font-bold`}
+          } text-xl font-bold`}
         >
           {title}
         </Text>
 
         {/* RIGHT ICON */}
         {showRightIcon ? (
-          <Pressable className="z-10">
+          <Pressable className="border h-14 w-14 flex items-center justify-center border-gray-300 rounded-full">
             <Octicons name="kebab-horizontal" size={24} />
           </Pressable>
         ) : (

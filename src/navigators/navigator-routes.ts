@@ -10,7 +10,9 @@ export type NavigatorParamList = {
   ['MessageScreen']: undefined;
   ['AccountScreen']: undefined;
   ['NotificationScreen']: undefined;
-
+  ['CarDetailsScreen']: undefined;
+  ['rootStack']: undefined;
+  ['ReviewScreen']: undefined;
 };
 
 export type ScreenName = keyof NavigatorParamList;

@@ -3,8 +3,8 @@ import React from 'react'
 
 const Notification = () => {
   return (
-    <View>
-      <Text>Notification</Text>
+    <View className='flex-1 items-center justify-center'>
+      <Text className='text-black'>Notification</Text>
     </View>
   )
 }

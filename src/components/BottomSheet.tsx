@@ -19,9 +19,10 @@ const { height } = Dimensions.get("window");
 interface BottomSheetProps {
   visible: boolean;
   onClose: () => void;
+  title?: string
 }
 
-const BottomSheet = ({ visible, onClose }: BottomSheetProps) => {
+const BottomSheet = ({ visible, onClose, title }: BottomSheetProps) => {
   const [carType, setCarType] = useState("All Cars");
   const [minPrice, setMinPrice] = useState(0);
   const maxPrice = 100000;
@@ -83,7 +84,7 @@ const BottomSheet = ({ visible, onClose }: BottomSheetProps) => {
       >
         {/* Header with swipe-down */}
       <Animated.View {...panResponder.panHandlers} className="flex-row justify-between items-center p-4 border-b border-gray-200">
-          <Text className="text-lg font-semibold">Filter</Text>
+          <Text className="text-lg font-semibold">{title}</Text>
           <Pressable onPress={onClose}>
             <Ionicons name="close-outline" size={28} color="black" />
           </Pressable>
