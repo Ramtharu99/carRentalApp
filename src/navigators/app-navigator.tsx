@@ -31,6 +31,8 @@ import Notification from '../screens/Notification';
 import CarDetails from '../screens/CarDetails';
 import ReviewScreen from '../screens/ReviewScreen';
 import BookingScreen from '../screens/BookingScreen';
+import BookingPaymentScreen from '../screens/PaymentMethod';
+import Confirm from '../screens/Confirm';
 
 type NavigationProps = Partial<
   React.ComponentProps<typeof NavigationContainer>
@@ -198,6 +200,20 @@ const RootStack = () => {
       <Stack.Screen
         name="BookingScreen"
         component={BookingScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="PaymentMethod"
+        component={BookingPaymentScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="Confirmation"
+        component={Confirm}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}

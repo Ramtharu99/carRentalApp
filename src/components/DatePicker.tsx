@@ -2,7 +2,11 @@ import { View } from 'react-native'
 import React, { useState } from 'react'
 import DateTimePicker, { DateType, useDefaultStyles } from 'react-native-ui-datepicker'
 
-const DatePicker = () => {
+interface DatePIckerProps {
+  onSelect: (startDate: DateType, endDate: DateType) => void;
+}
+
+const DatePicker = ({onSelect}: DatePIckerProps) => {
 
     const defaultStyle = useDefaultStyles()
     const [startDate, setStartDate] = useState<DateType>()
@@ -18,6 +22,10 @@ const DatePicker = () => {
         onChange={({startDate: s, endDate: e}) => {
         setStartDate(s)
         setEndDate(e)
+
+        if(s && e){
+          onSelect(s, e);
+        }
       }}
       />
     </View>

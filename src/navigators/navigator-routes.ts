@@ -14,6 +14,8 @@ export type NavigatorParamList = {
   ['rootStack']: undefined;
   ['ReviewScreen']: undefined;
   ['BookingScreen']: undefined;
+  ['PaymentMethod']: undefined;
+  ['Confirmation']: undefined;
 };
 
 export type ScreenName = keyof NavigatorParamList;
