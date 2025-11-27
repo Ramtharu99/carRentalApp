@@ -5,6 +5,7 @@ import { FlatList, View } from 'react-native'
 import ReviewCard from '../components/ReviewCard'
 import SearchBar from '../components/SearchBar'
 import Button from '../components/Button'
+import { navigate } from '../navigators/navigator-utils'
 
 const ReviewScreen = () => {
   return (
@@ -21,7 +22,9 @@ const ReviewScreen = () => {
             )}
          />
          <View className='px-4'>
-            <Button title="Book Now" containerClass="bg-button" textClass="text-white" />
+            <Button onPress={() => navigate('rootStack', {
+              screen: "BookingScreen"
+            })} title="Book Now" containerClass="bg-button" textClass="text-white" />
          </View>
     </SafeAreaView>
   )

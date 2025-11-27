@@ -2,20 +2,14 @@ import React from "react";
 import { View, Pressable } from "react-native";
 import Octicons from "react-native-vector-icons/Octicons";
 import Input from "./Input";
-
-interface Props {
-  placeholder?: string;
-  showFilter?: boolean;
-  onFilterPress?: () => void;
-  onChangeText?: (text: string) => void;
-}
+import { InputProps } from "../types/type";
 
 const SearchBar = ({
   placeholder = "Search your dream car...",
   showFilter = true,
   onFilterPress,
   onChangeText
-}: Props) => {
+}: InputProps) => {
   return (
     <View className="flex-row gap-4 w-full px-4 items-center py-2 bg-background">
       <View className="flex-1">

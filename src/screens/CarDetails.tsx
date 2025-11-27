@@ -118,7 +118,9 @@ const CarDetails = () => {
             </View>
         </ScrollView>
         <View className='px-4'>
-        <Button title="Book Now" containerClass="bg-button" textClass="text-white" onPress={() => console.log("Book nw button clicked")} />
+        <Button  title="Book Now" containerClass="bg-button" textClass="text-white" onPress={() => navigate('rootStack', {
+            screen: "BookingScreen"
+        })} />
         </View>
     </SafeAreaView>
   )

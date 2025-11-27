@@ -5,18 +5,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
 import assets from '../../assets'
 import Favorite from './Favorite'
+import { CarCardProps } from '../types/type'
 
-interface CarCardProps {
-  title?: string;
-  image?: any;
-  location?: string;
-  seat?: number;
-  price?: number;
-  rate?: number;
-  viewDetails?: () => void;
-  buttonText?: string; 
-  onButtonPress?: () => void; 
-}
 
 const CarCard = ({
   title = "Car Name",

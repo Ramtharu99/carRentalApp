@@ -4,7 +4,6 @@ import  FontAwesome  from 'react-native-vector-icons/FontAwesome';
 import assets from '../../assets';
 
 const ReviewCard = () => {
-
     const {person} = assets
 
   return (
@@ -13,7 +12,7 @@ const ReviewCard = () => {
         <View className="flex-row justify-between items-center">
             {/* User Info */}
             <View className="flex-row items-center">
-                <Image source={person} className="h-14 w-14 rounded-full mr-3" />
+                <Image source={person} className="h-14 w-14 rounded-full mr-3" resizeMode='cover' />
                 <View>
                     <Text className="text-base font-semibold">Mr Jack</Text>
                     <Text className="text-gray-500 text-sm">2 days ago</Text>

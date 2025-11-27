@@ -1,16 +1,6 @@
 import React from "react";
 import { Text, Pressable, Image } from "react-native";
-
-interface CarBrandItemProps {
-  image: any;
-  name: string;
-  layout?: "row" | "column";
-  onPress?: () => void;
-  selected?: boolean;
-  size?: "sm" | "md" | "lg";
-  textSize?: "sm" | "base" | "lg";
-  padding?: "p-1" | "p-2" | "p-3";
-}
+import { CarBrandItemProps } from "../types/type";
 
 const CarBrandItem = ({
   image,

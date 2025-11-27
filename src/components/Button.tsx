@@ -1,14 +1,7 @@
 import { Text, Pressable, Image } from 'react-native'
 import React from 'react'
 import AntDesign from 'react-native-vector-icons/AntDesign'
-
-interface ButtonProps {
-  title: string;
-  onPress?: () => void;
-  containerClass?: string;
-  textClass?: string;
-  icon?: string;
-}
+import { ButtonProps } from '../types/type'
 
 const Button = ({
   title,
@@ -16,7 +9,7 @@ const Button = ({
   containerClass = "",
   textClass = "",
   icon
-}: any) => {
+}: ButtonProps) => {
   return (
     <Pressable
       onPress={onPress}

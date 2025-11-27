@@ -10,17 +10,13 @@ import {
   PanResponder,
   Dimensions,
 } from "react-native";
-import { Calendar } from "react-native-calendars";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import Slider from "@react-native-community/slider";
+import DatePicker from "./DatePicker";
+import { BottomSheetProps } from "../types/type";
 
 const { height } = Dimensions.get("window");
 
-interface BottomSheetProps {
-  visible: boolean;
-  onClose: () => void;
-  title?: string
-}
 
 const BottomSheet = ({ visible, onClose, title }: BottomSheetProps) => {
   const [carType, setCarType] = useState("All Cars");
@@ -158,14 +154,8 @@ const BottomSheet = ({ visible, onClose, title }: BottomSheetProps) => {
           {/* Calendar */}
           <Text className="text-gray-700 font-semibold mt-4 text-lg">Select Date</Text>
           <View className="border border-gray-300 rounded-xl mt-2 overflow-hidden">
-            <Calendar
-              onDayPress={(day) => setSelectedDate(day.dateString)}
-              markedDates={
-                selectedDate ? { [selectedDate]: { selected: true } } : {}
-              }
-            />
+            <DatePicker />
           </View>
-
           {/* Car Colors */}
           <Text className="text-gray-700 font-semibold mt-4 text-lg">Car Color</Text>
           <View className="flex-row flex-wrap gap-2 mt-2">

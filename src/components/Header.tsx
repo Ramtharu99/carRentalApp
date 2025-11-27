@@ -18,9 +18,7 @@ const Header = ({
 
   const navigation = useNavigation<any>()
   const { logo_black, person } = assets;
-
-  // ---------------- HOME HEADER ----------------
-
+  
   if (type === "home") {
     return (
       <View className="border-b border-gray-300 py-2 px-4">

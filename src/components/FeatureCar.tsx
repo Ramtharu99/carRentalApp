@@ -1,23 +1,7 @@
 import React from "react";
 import { View, Text, Image, Pressable, ViewStyle } from "react-native";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-
-interface FeatureCardProps {
-  icon?: any;
-  vectorIcon?: string;
-  iconSize?: number;
-  iconColor?: string;
-
-  title: string;
-  value: string;
-
-  bgColor?: string;
-  titleColor?: string;
-  valueColor?: string;
-  containerClass?: string;
-  style?: ViewStyle; 
-  onPress?: () => void;
-}
+import { FeatureCardProps } from "../types/type";
 
 const FeatureCard = ({
   icon,

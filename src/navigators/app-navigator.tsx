@@ -30,6 +30,7 @@ import Account from '../screens/Account';
 import Notification from '../screens/Notification';
 import CarDetails from '../screens/CarDetails';
 import ReviewScreen from '../screens/ReviewScreen';
+import BookingScreen from '../screens/BookingScreen';
 
 type NavigationProps = Partial<
   React.ComponentProps<typeof NavigationContainer>
@@ -190,6 +191,13 @@ const RootStack = () => {
       <Stack.Screen
         name="ReviewScreen"
         component={ReviewScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="BookingScreen"
+        component={BookingScreen}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
