@@ -26,13 +26,15 @@ import OTPScreen from '../auth/OTPScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import Message from '../screens/Message';
-import Account from '../screens/Account';
 import Notification from '../screens/Notification';
 import CarDetails from '../screens/CarDetails';
 import ReviewScreen from '../screens/ReviewScreen';
 import BookingScreen from '../screens/BookingScreen';
 import BookingPaymentScreen from '../screens/PaymentMethod';
 import Confirm from '../screens/Confirm';
+import PaymentStatus from '../screens/PaymentStatus';
+import ProfileScreen from '../screens/ProfileScreen';
+import EditPrifleScreen from '../screens/EditPrifleScreen';
 
 type NavigationProps = Partial<
   React.ComponentProps<typeof NavigationContainer>
@@ -65,7 +67,7 @@ const TabStack = () => {
             iconName = focused ? 'search' : 'search';
           }else if(route.name === 'MessageScreen'){
             iconName = focused ? 'message' : 'message';
-          }else if(route.name === 'AccountScreen'){
+          }else if(route.name === 'ProfileScreen'){
             iconName = focused ? 'account-circle': 'account-circle'
           }
 
@@ -116,8 +118,8 @@ const TabStack = () => {
         options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
       />
       <Tab.Screen
-        name="AccountScreen"
-        component={Account}
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
       />
     </Tab.Navigator>
@@ -169,13 +171,6 @@ const AuthStack = () => {
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}
       />
-      <Stack.Screen
-        name="NotificationScreen"
-        component={Notification}
-        options={{
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-        }}
-      />
     </Stack.Navigator>
   );
 };
@@ -214,6 +209,34 @@ const RootStack = () => {
       <Stack.Screen
         name="Confirmation"
         component={Confirm}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="PaymentStatus"
+        component={PaymentStatus}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="EditProfileScreen"
+        component={EditPrifleScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="NotificationScreen"
+        component={Notification}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="ProfileScreen"
+        component={ProfileScreen}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}

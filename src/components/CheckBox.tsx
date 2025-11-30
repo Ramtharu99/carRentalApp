@@ -2,7 +2,13 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { Checkbox } from 'react-native-paper'
 
-const CheckBox = ({status, onPress, label}: any) => {
+interface CheckBoxProps {
+  label: string;
+  status: 'checked' | 'unchecked'; 
+  onPress: () => void;
+}
+
+const CheckBox = ({status, onPress, label}: CheckBoxProps) => {
   return (
     <View className='flex-row items-center'>
     <Checkbox

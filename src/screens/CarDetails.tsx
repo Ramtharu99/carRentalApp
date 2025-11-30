@@ -44,20 +44,20 @@ const CarDetails = () => {
 
                     {/* top row: text left, rating right */}
                     <View className="flex-row justify-between items-start">
-                    <View className="max-w-[65%]">
+                        <View className="max-w-[65%]">
                         <Text className="text-2xl font-bold">Tesa model 5</Text>
                         <Text className="text-gray-700">
                         A Car with high specs that are rented at an affordable price
                         </Text>
                     </View>
 
-                    <View className="items-end">
-                        <View className="flex-row items-center">
-                        <Text className="text-lg font-semibold mr-1">5.0</Text>
-                        <FontAwesome name="star" size={20} color="#FDD835" />
+                        <View className="items-end">
+                            <View className="flex-row items-center">
+                            <Text className="text-lg font-semibold mr-1">5.0</Text>
+                            <FontAwesome name="star" size={20} color="#FDD835" />
+                            </View>
+                            <Text className="text-gray-600">(100+ Reviews){' '}</Text>
                         </View>
-                        <Text className="text-gray-600">(100+ Reviews){' '}</Text>
-                    </View>
                     </View>
 
                     {/* Divider placed BELOW the above content */}

@@ -56,7 +56,7 @@ const HomeScreen = () => {
           screen: "NotificationScreen"
         })}
         onAccount={() => navigate("rootStack", {
-          screen: "AccountScreen"
+          screen: "ProfileScreen"
         })}
       />
 

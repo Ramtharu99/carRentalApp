@@ -7,6 +7,7 @@ import BookingDetails from "./BookingDetails";
 import PaymentMethod from "./PaymentMethod";
 import Confirm from "./Confirm";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { navigate } from "../navigators/navigator-utils";
 
 const BookingScreen = () => {
   const [currentStep, setCurrentStep] = useState<number>(0);
@@ -20,14 +21,11 @@ const BookingScreen = () => {
   return (
     <SafeAreaView className="flex-1 bg-gray-100">
       <Header type="back" title="Booking Details" />
-
-      {/* Step Indicator */}
+      {/* Scrollable Content */}
+      <ScrollView className="flex-1 px-4 mt-4">
       <View className="mt-4">
         <StepIndicator steps={steps} currentStep={currentStep} />
       </View>
-
-      {/* Scrollable Content */}
-      <ScrollView className="flex-1 mt-4">
         {currentStep === 0 && <BookingDetails />}
         {currentStep === 1 && <PaymentMethod />}
         {currentStep === 2 && <Confirm />}
@@ -47,7 +45,7 @@ const BookingScreen = () => {
         {currentStep === 1 && (
           <View className="gap-4"> 
             <Button
-              title="Confirm Payment"
+              title="Continue"
               containerClass="bg-button"
               textClass="text-white"
               onPress={() => setCurrentStep(2)}
@@ -64,10 +62,12 @@ const BookingScreen = () => {
         {currentStep === 2 && (
           <View className="gap-4">
             <Button
-              title="Confirm"
+              title="Finish"
               containerClass="bg-button"
               textClass="text-white"
-              onPress={() => console.log("Booking Finished")}
+              onPress={() => navigate('rootStack', {
+                screen: "PaymentStatus"
+              })}
             />
             <Button
               title="Back"

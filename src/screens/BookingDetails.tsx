@@ -4,7 +4,6 @@ import { Switch } from "react-native-paper";
 import Input from "../components/Input";
 import Switcher from "../components/Switcher";
 import DatePicker from "../components/DatePicker";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 
 interface BookingDetailsProps {
@@ -14,17 +13,16 @@ interface BookingDetailsProps {
   setReturnDate?: (date: string) => void;
 }
 
-const BookingDetails: React.FC<BookingDetailsProps> = ({
+const BookingDetails = ({
   pickupDate: initialPickupDate = "19/Jan/2025",
   returnDate: initialReturnDate = "19/Jan/2025",
   setPickupDate,
   setReturnDate,
-}) => {
+}: BookingDetailsProps) => {
   const [isOn, setIsOn] = useState<boolean>(false);
   const [genderActive, setGenderActive] = useState<number>(0);
   const [rentalDate, setRentalDate] = useState<number>(0);
   const [visible, setVisible] = useState<boolean>(false);
-
   const [pickup, setPickup] = useState<string>(initialPickupDate);
   const [returnD, setReturn] = useState<string>(initialReturnDate);
 

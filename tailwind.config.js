@@ -15,7 +15,8 @@ module.exports = {
         icon: "rgb(156,156,156)",
         search: "rgb(51,52,56)",
         button: "#21292b",
-        background: "#f8f8f8"
+        background: "#f8f8f8",
+        graycolor: '#AEAEAE'
       }
     },
     fontFamily: {

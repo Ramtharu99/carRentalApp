@@ -6,6 +6,8 @@ const assets = {
   person: require('./images/person.png'),
   tesla: require("./images/tesla.png"),
   white_car: require("./images/whiteCar.png"),
+  status_success: require("./images/success-status.png"),
+  status_failed: require("./images/failed-status.png")
 
 };
 
