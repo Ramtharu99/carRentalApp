@@ -18,6 +18,7 @@ export type NavigatorParamList = {
   ['Confirmation']: undefined;
   ['PaymentStatus']: undefined;
   ['EditProfileScreen']: undefined;
+  ['ChatScreen']: undefined;
 };
 
 export type ScreenName = keyof NavigatorParamList;

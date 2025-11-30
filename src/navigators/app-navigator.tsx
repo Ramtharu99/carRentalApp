@@ -25,7 +25,6 @@ import VerifyScreen from '../auth/VerifyScreen';
 import OTPScreen from '../auth/OTPScreen';
 import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
-import Message from '../screens/Message';
 import Notification from '../screens/Notification';
 import CarDetails from '../screens/CarDetails';
 import ReviewScreen from '../screens/ReviewScreen';
@@ -35,6 +34,8 @@ import Confirm from '../screens/Confirm';
 import PaymentStatus from '../screens/PaymentStatus';
 import ProfileScreen from '../screens/ProfileScreen';
 import EditPrifleScreen from '../screens/EditPrifleScreen';
+import MessageScreen from '../screens/MessageScreen';
+import ChatScreen from '../screens/ChatScreen';
 
 type NavigationProps = Partial<
   React.ComponentProps<typeof NavigationContainer>
@@ -114,7 +115,7 @@ const TabStack = () => {
       />
       <Tab.Screen
         name="MessageScreen"
-        component={Message}
+        component={MessageScreen}
         options={{tabBarLabel: 'Onboarding', tabBarShowLabel: false}}
       />
       <Tab.Screen
@@ -237,6 +238,13 @@ const RootStack = () => {
       <Stack.Screen
         name="ProfileScreen"
         component={ProfileScreen}
+        options={{
+          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        }}
+      />
+      <Stack.Screen
+        name="ChatScreen"
+        component={ChatScreen}
         options={{
           cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         }}

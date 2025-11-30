@@ -13,17 +13,20 @@ const Header = ({
   showNotification = true,
   badgeCount = 0,
   onNotificationPress,
-  onAccount
+  onAccount,
+  userName = "",
+  userStatus = "",
+  userImage,
+  showUserImage = false,
+  rightIcons = [],
 }: HeaderProps) => {
-
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation<any>();
   const { logo_black, person } = assets;
-  
+
   if (type === "home") {
     return (
       <View className="border-b border-gray-300 py-2 px-4">
         <View className="flex-row items-center">
-
           {/* LOGO + TEXT */}
           <View className="flex-row items-center gap-2">
             <Image source={logo_black} className="h-9 w-9" />
@@ -44,7 +47,10 @@ const Header = ({
               )}
             </Pressable>
 
-            <Pressable onPress={onAccount} className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center">
+            <Pressable
+              onPress={onAccount}
+              className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center"
+            >
               <Image source={person} className="h-8 w-8" />
             </Pressable>
           </View>
@@ -53,14 +59,71 @@ const Header = ({
     );
   }
 
+  // -----------------------------
+  // CHAT HEADER (Back + optional user image + name + status + right icons)
+  // -----------------------------
+  if (type === "chat") {
+    return (
+      <View className="border-b border-gray-300 py-3 px-4">
+        <View className="flex-row items-center justify-between">
+          {/* LEFT: BACK + optional USER IMAGE + DETAILS */}
+          <View className="flex-row items-center gap-3">
+            {/* BACK BUTTON */}
+            <Pressable
+              onPress={() => navigation.goBack()}
+              className="h-12 w-12 rounded-full border border-gray-300 items-center justify-center"
+            >
+              <Octicons name="chevron-left" size={26} />
+            </Pressable>
 
+            {/* USER IMAGE + NAME + optional STATUS */}
+            {showUserImage && (
+              <View className="flex-row items-center gap-2">
+                <Image
+                  source={userImage || person}
+                  className="h-12 w-12 rounded-full"
+                />
+
+                {/* USER DETAILS */}
+                <View className={userStatus ? "" : "justify-center"}>
+                  <Text className="text-lg font-bold">{userName}</Text>
+                  {userStatus && (
+                    <Text className="text-sm text-gray-500">{userStatus}</Text>
+                  )}
+                </View>
+              </View>
+            )}
+          </View>
+
+
+          {/* RIGHT SIDE ICONS */}
+          <View className="flex-row items-center gap-4">
+            {rightIcons.map((item, index) => (
+              <Pressable
+                key={index}
+                onPress={item.onPress}
+                className="h-11 w-11 rounded-full border bg-white border-gray-300 items-center justify-center"
+              >
+                <Octicons name={item.name} size={22} />
+              </Pressable>
+            ))}
+          </View>
+        </View>
+      </View>
+    );
+  }
+
+  // -----------------------------
+  // DEFAULT BACK HEADER
+  // -----------------------------
   return (
     <View className="border-b border-gray-300 py-3 px-4">
-
       <View className="flex-row items-center justify-between relative">
-
         {/* BACK BUTTON */}
-        <Pressable onPress={() => navigation.goBack()} className="border h-14 w-14 flex items-center justify-center border-gray-300 rounded-full">
+        <Pressable
+          onPress={() => navigation.goBack()}
+          className="border h-14 w-14 flex items-center justify-center border-gray-300 rounded-full"
+        >
           <Octicons name="chevron-left" size={28} />
         </Pressable>
 
@@ -79,10 +142,9 @@ const Header = ({
             <Octicons name="kebab-horizontal" size={24} />
           </Pressable>
         ) : (
-          <View className="w-6" /> 
+          <View className="w-6" />
         )}
       </View>
-
     </View>
   );
 };

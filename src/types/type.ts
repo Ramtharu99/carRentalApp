@@ -12,15 +12,27 @@ export interface InputProps {
 
 
 export interface HeaderProps {
-  type?: "home" | "back";
-  title?: string;            
-  showNotification?: boolean; 
+  type: "home" | "back" | "chat";   
+  title?: string;
+
+  showNotification?: boolean;
   badgeCount?: number;
   centerTitle?: boolean;
   showRightIcon?: boolean;
-  onNotificationPress?: any;
-  onAccount?: any;
+  showUserImage?: boolean;
+
+  onNotificationPress?: () => void;
+  onAccount?: () => void;
+
+  userName?: string;                     
+  userStatus?: string;                   
+  userImage?: any;                       
+  rightIcons?: {                         
+    name: string;                    
+    onPress?: () => void;
+  }[];
 }
+
 
 export interface BottomSheetProps {
   visible: boolean;
